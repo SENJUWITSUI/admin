@@ -11,4 +11,10 @@
     <color name="red">#FF4757</color>
     <color name="GREEN">#2ED573</color>
 
+
+    <color name="oceanblue">#3DC1D3</color>
+    <color name="editcolor">#2ED573</color>
+    <color name="deletecolor">#FF4757</color>
+    <color name="dark_blue">#16507B</color>
+
 </resources>
