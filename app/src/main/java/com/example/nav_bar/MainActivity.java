@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 new Dashboard()).commit();
         navigationView.setCheckedItem(R.id.dashboard);
     }
+
+
 }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
