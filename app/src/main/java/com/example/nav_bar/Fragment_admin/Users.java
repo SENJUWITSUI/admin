@@ -1,4 +1,4 @@
-package com.example.nav_bar.Fragment;
+package com.example.nav_bar.Fragment_admin;
 
 import android.os.Bundle;
 

@@ -1,28 +1,18 @@
 package com.example.nav_bar;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.example.nav_bar.Fragment.Dashboard;
-import com.example.nav_bar.Fragment.Hospital;
-import com.example.nav_bar.Fragment.Services;
-import com.example.nav_bar.Fragment.Users;
+import com.example.nav_bar.Fragment_admin.Dashboard;
+import com.example.nav_bar.Fragment_admin.Hospital;
+import com.example.nav_bar.Fragment_admin.Services;
+import com.example.nav_bar.Fragment_admin.Users;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
