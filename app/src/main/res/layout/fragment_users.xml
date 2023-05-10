@@ -1,14 +1,670 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragment.Users">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".Fragment.Users">
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/medicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="1dp"
+            android:text="User Management"
+            android:textColor="#444444"
+            android:textSize="27dp" />
+
+        <TextView
+            android:id="@+id/services"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/medicine"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="12dp"
+            android:text="Users"
+            android:textColor="#003473"
+            android:textSize="20dp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/services"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="25dp"
+            android:background="#807D7D"
+            android:elevation="1dp" />
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cdadd"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:layout_below="@+id/view1"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            app:cardBackgroundColor="#EAE9E9"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/userbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/button1"
+                    android:drawableStart="@drawable/baseline_add_24"
+                    android:paddingHorizontal="15dp"
+                    android:text="USERS"
+                    android:onClick="addHospital"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+
+
+            android:id="@+id/cdmain"
+            android:layout_width="match_parent"
+            android:layout_height="560dp"
+            android:layout_below="@+id/cdadd"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="10dp"
+            app:cardBackgroundColor="#ffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cdadd">
+
+
+            <TextView
+                android:id="@+id/showtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="22dp"
+                android:text="Show"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+            <EditText
+                android:id="@+id/search1"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="number"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/entries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="108dp"
+                android:layout_marginTop="22dp"
+                android:text="entries"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/searchtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="190dp"
+                android:layout_marginTop="22dp"
+                android:layout_toEndOf="@+id/entries"
+                android:text="Search"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/search2"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="text"
+                android:text="" />
+
+
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp">
+
+                    <TableLayout
+                        android:id="@+id/table"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="4dp">
+
+                        <TableRow android:background="@drawable/shape">
+
+                            <TextView
+                                android:id="@+id/unme"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Username"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/nme"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Name"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/mail"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Email"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/specs"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Specialization"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/types"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Types"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/connum"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Contact Number"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
+
+                            <TextView
+                                android:id="@+id/action"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Action"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+                        </TableRow>
+
+                        <TableRow android:background="#D6D6D6">
+
+                            <TextView
+                                android:id="@+id/usr"
+                                android:layout_width="100dp"
+                                android:layout_height="65dp"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="mhart"
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="65dp"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Reymart L. Pandalag"
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="65dp"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="mhartllabres@gmail.com"
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/specialization"
+                                android:layout_width="65dp"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Surgeon"
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/coordinator"
+                                android:layout_width="wrap_content"
+                                android:layout_height="65dp"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="Doctor"
+                                android:textColor="#444444"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/cpnumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="65dp"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text="09123456789"
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="65dp"
+                                android:background="@drawable/divider">
+                                <Button
+                                    android:id="@+id/edit1"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:backgroundTint="@color/GREEN"
+                                    android:drawableStart="@drawable/edit"
+                                    android:paddingStart="15dp" />
+                                <Button
+                                    android:id="@+id/delete1"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="2dp"
+                                    android:layout_marginTop="5dp"
+                                    android:backgroundTint="@color/red"
+                                    android:drawableStart="@drawable/delete"
+                                    android:paddingStart="15dp" />
+                            </LinearLayout>
+                        </TableRow>
+
+                        <TableRow android:background="#fff">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+                        </TableRow>
+
+                        <TableRow android:background="#D6D6D6">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+                        </TableRow>
+
+
+                        <TableRow android:background="#fff">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+                        </TableRow>
+
+
+                        <TableRow android:background="#D6D6D6">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:gravity="center"
+                                android:padding="20dp"
+                                android:text=""
+                                android:textColor="#444444"
+                                android:textSize="18dp" />
+                        </TableRow>
+                    </TableLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

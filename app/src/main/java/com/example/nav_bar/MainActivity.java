@@ -3,16 +3,21 @@ package com.example.nav_bar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.nav_bar.Fragment.Dashboard;
 import com.example.nav_bar.Fragment.Hospital;
@@ -24,8 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    Spinner spinner;
-    String[] data = {"Option 1", "Change Password", "LogOut"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,20 +40,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
 
-        spinner = findViewById(R.id.spinner);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, data);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        Spinner spinner = findViewById(R.id.spinner);
-        spinner.setAdapter(adapter);
-
-
-     if (savedInstanceState == null) {
+            if (savedInstanceState == null) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new Dashboard()).commit();
         navigationView.setCheckedItem(R.id.dashboard);
     }
+
+
 }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -84,9 +81,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-
-
-
 
     public void showMenu(View view) {
         drawerLayout.open();

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="2dp"
+            android:text="CREATE HOSPITAL"
+            android:textStyle="bold"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/dark_blue"/>
+
+            <TextView
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="110dp"
+                android:elevation="300dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:scaleType="centerCrop"
+                android:text="x"
+                android:textColor="#676D71"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardBackgroundColor="@color/white">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Hospital Name"
+                android:textColor="@color/dark_blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="*"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/deletecolor" />
+
+        </LinearLayout>
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spinner"-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/spinner_hospital"-->
+<!--            android:outlineProvider="background"-->
+<!--            android:padding="5dp" />-->
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edittextborder"
+            android:textColor="#444444" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have iHomis?"
+            android:textColor="@color/dark_blue"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="10dp"/>
+
+
+        <RadioGroup
+            android:id="@+id/my_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/yesCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="115dp"
+                android:buttonTint="@color/dark_blue"
+                android:text="Yes"
+                android:textColor="#444444"/>
+
+            <RadioButton
+                android:id="@+id/noCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:buttonTint="@color/dark_blue"
+                android:text="No"
+                android:textColor="#444444"
+               />
+
+
+        </RadioGroup>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+        <Button
+            android:id="@+id/close"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="100dp"
+            android:text="Close"
+            android:onClick="yesBtn"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/deletecolor"
+            android:textColor="@color/white"
+            android:background="@drawable/hospital_buttons"/>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            android:text="Save Changes"
+            android:onClick="noBtn"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/dark_blue"
+            android:background="@drawable/hospital_buttons" />
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

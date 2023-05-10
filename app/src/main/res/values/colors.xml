@@ -8,5 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="underline">#D8D6D6</color>
+    <color name="red">#FF4757</color>
+    <color name="GREEN">#2ED573</color>
+
+
+    <color name="oceanblue">#3DC1D3</color>
+    <color name="editcolor">#2ED573</color>
+    <color name="deletecolor">#FF4757</color>
+    <color name="dark_blue">#16507B</color>
 
 </resources>
