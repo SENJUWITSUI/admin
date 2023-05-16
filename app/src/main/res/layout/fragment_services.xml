@@ -156,7 +156,7 @@
                         android:textColor="#444444"/>
 
                     <EditText
-                        android:id="@+id/box2"
+                        android:id="@+id/servicesearch"
                         android:layout_width="230dp"
                         android:layout_height="40dp"
                         android:layout_marginStart="90dp"
@@ -174,8 +174,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp "
+                        android:layout_marginRight="10dp"
                         android:layout_below="@+id/search1"
                         android:layout_weight="1"
                         android:textAlignment="center">

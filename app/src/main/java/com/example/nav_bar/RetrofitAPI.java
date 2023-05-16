@@ -5,19 +5,23 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface RetrofitAPI {
-//    @POST("users")
-//    Call<Hospitals> createHospital(@Body Hospitals hospitals);
-//
-//    @FormUrlEncoded
-//    @POST("hospitals")
-//    Call<Hospitals> createHospital (
-//            @Field("hospital_name")String hospital_name,
-//            @Field("homis")String homis
-//    );
+     @GET("services")
+    Call<List<Post>> listRepos();
+    @GET("hospitals")
+    Call<List<Post>> listRepos2();
+
+    @GET("users")
+    Call<List<UserData>> getUsers();
 
     @GET("services")
     Call<List<service>> getServices();
+
+//    @GET("services")
+//    static Call<List<service>> getData(@Query("search") String searchText) {
+//        return null;
+//    }
 
 }

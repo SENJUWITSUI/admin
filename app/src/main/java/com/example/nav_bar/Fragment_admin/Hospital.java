@@ -1,8 +1,8 @@
 package com.example.nav_bar.Fragment_admin;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,10 +16,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.nav_bar.JsonPlaceHolderApi;
 import com.example.nav_bar.Post;
 import com.example.nav_bar.R;
-import com.example.nav_bar.hospitals_view;
+import com.example.nav_bar.RetrofitAPI;
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Hospital extends Fragment {
 
-    private static String BASE_URL = "http://10.20.102.46:8080/api/";
+    private static String BASE_URL = "http://10.20.105.87:8080/api/";
     private Button addHospital;
     private Button addCoor;
     private Button addDoc;
@@ -40,24 +39,25 @@ public class Hospital extends Fragment {
     private Button del;
     private Dialog dialog;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_hospital, container, false);
         addHospital = (Button) view.findViewById(R.id.addHospital);
-        //Action Buttons
+//        Action Buttons
 //        addCoor = (Button) view.findViewById(R.id.addCoordinator);
 //        addDoc = (Button) view.findViewById(R.id.addDoctor);
-//        view2 = (Button) view.findViewById(R.id.view2);
+//        view2 = (Button) view.findViewById(R.id.view1);
 //        edit = (Button) view.findViewById(R.id.edit);
 //        del = (Button) view.findViewById(R.id.delete);
 
-//        dialog = new Dialog(getContext());
-//        dialog.setContentView(R.layout.create_hospital);
-//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        dialog.setCancelable(false);
-//        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+        dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.create_hospital);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
 
 
         TableLayout tableLayout = view.findViewById(R.id.table_hospital);
@@ -66,8 +66,8 @@ public class Hospital extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<List<Post>> call = jsonPlaceHolderApi.listRepos2();
+        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+        Call<List<Post>> call = retrofitAPI.listRepos2();
 
         call.enqueue(new Callback<List<Post>>(){
 
@@ -92,6 +92,9 @@ public class Hospital extends Fragment {
                         hospitalview.setLayoutParams(hospitalLayoutParams);
                         hospitalview.setText(h_name);
 
+                        // Inflate the row layout XML file
+                        View rowView = LayoutInflater.from(context).inflate(R.layout.hospitalbtn, row, false);
+
                         // Add a divider View between the columns
                         View divider = new View(context);
                         divider.setLayoutParams(new TableRow.LayoutParams(1, TableRow.LayoutParams.MATCH_PARENT));
@@ -105,6 +108,7 @@ public class Hospital extends Fragment {
 
                         // Add the TextViews to the table row
                         row.addView(hospitalview);
+                        row.addView(rowView);
 
                         tableLayout.addView(row);
                     }
@@ -187,9 +191,6 @@ public class Hospital extends Fragment {
 //                delete_hospital();
 //            }
 //        });
-
-        return view;
-    }
 
 
 //    private void add_coordinator() {
@@ -354,4 +355,8 @@ public class Hospital extends Fragment {
 //            }
 //        });
 //        dialog.show();
+
+        return view;
     }
+}
+
