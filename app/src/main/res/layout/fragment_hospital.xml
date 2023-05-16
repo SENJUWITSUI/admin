@@ -172,9 +172,10 @@
                         android:textColor="#444444"
                         android:textSize="20dp" />
 
+
                     <TableLayout
                         android:id="@+id/table_hospital"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/search1"
                         android:layout_marginRight="25dp"
@@ -186,9 +187,8 @@
                             android:background="@drawable/table_border"
                             android:layout_marginTop="2dp">
 
-
                             <TextView
-                                android:layout_width="162dp"
+                                android:layout_width="150dp"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/table_cellborder"
                                 android:gravity="center"
@@ -198,126 +198,19 @@
                                 android:textSize="19sp" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
+                                android:background="@drawable/table_cellborder"
                                 android:gravity="center"
                                 android:padding="10dp"
                                 android:text="ACTION"
                                 android:textColor="#444444"
-                                android:textSize="19sp"
-                                android:background="@drawable/table_cellborder"/>
-
+                                android:textSize="19sp" />
 
                         </TableRow>
-
-<!--                        <TableRow-->
-<!--                            android:background="@drawable/table_border"-->
-<!--                            android:layout_marginTop="2dp">-->
-
-
-<!--                            <TextView-->
-<!--                                android:id="@+id/hospital"-->
-<!--                                android:layout_width="150dp"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:gravity="center"-->
-<!--                                android:padding="10dp"-->
-<!--                                android:textColor="#444444"-->
-<!--                                android:text="Laguna Doctors"-->
-<!--                                android:textSize="20dp"-->
-<!--                                android:background="@drawable/table_cellborder"/>-->
-
-<!--                            &lt;!&ndash;                                //Action Buttons&ndash;&gt;-->
-<!--                            <LinearLayout-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:orientation="vertical"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:layout_margin="5dp">-->
-
-<!--                                <Button-->
-<!--                                    android:id="@+id/addCoordinator"-->
-<!--                                    android:layout_width="130dp"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_margin="5dp"-->
-<!--                                    android:background="@drawable/hospital_buttons"-->
-<!--                                    android:backgroundTint="@color/oceanblue"-->
-<!--                                    android:drawableStart="@drawable/baseline_person_add_24"-->
-<!--                                    android:paddingHorizontal="10dp"-->
-<!--                                    android:text="  Add Coordinator"-->
-<!--                                    android:textAllCaps="false"-->
-<!--                                    android:textColor="@color/white"-->
-<!--                                    android:textSize="13sp" />-->
-
-<!--                                <Button-->
-<!--                                    android:id="@+id/addDoctor"-->
-<!--                                    android:layout_width="130dp"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginLeft="5dp"-->
-<!--                                    android:background="@drawable/hospital_buttons"-->
-<!--                                    android:backgroundTint="@color/oceanblue"-->
-<!--                                    android:drawableStart="@drawable/baseline_person_add_24"-->
-<!--                                    android:paddingHorizontal="10dp"-->
-<!--                                    android:text="  Add Doctor"-->
-<!--                                    android:textAllCaps="false"-->
-<!--                                    android:textColor="@color/white"-->
-<!--                                    android:textSize="15sp" />-->
-
-<!--                                <Button-->
-<!--                                    android:id="@+id/view2"-->
-<!--                                    android:layout_width="130dp"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginTop="5dp"-->
-<!--                                    android:layout_marginLeft="5dp"-->
-<!--                                    android:background="@drawable/hospital_buttons"-->
-<!--                                    android:backgroundTint="@color/dark_blue"-->
-<!--                                    android:drawableStart="@drawable/baseline_remove_red_eye_24"-->
-<!--                                    android:paddingHorizontal="10dp"-->
-<!--                                    android:text="  View"-->
-<!--                                    android:textAllCaps="false"-->
-<!--                                    android:textColor="@color/white"-->
-<!--                                    android:textSize="16sp" />-->
-
-<!--                                <Button-->
-<!--                                    android:id="@+id/edit"-->
-<!--                                    android:layout_width="130dp"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_margin="5dp"-->
-<!--                                    android:background="@drawable/hospital_buttons"-->
-<!--                                    android:backgroundTint="@color/editcolor"-->
-<!--                                    android:drawableStart="@drawable/baseline_edit_24"-->
-<!--                                    android:paddingHorizontal="10dp"-->
-<!--                                    android:text="  Edit"-->
-<!--                                    android:textAllCaps="false"-->
-<!--                                    android:textColor="@color/white"-->
-<!--                                    android:textSize="15sp" />-->
-
-<!--                                <Button-->
-<!--                                    android:id="@+id/delete"-->
-<!--                                    android:layout_width="130dp"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:layout_marginLeft="5dp"-->
-<!--                                    android:background="@drawable/hospital_buttons"-->
-<!--                                    android:backgroundTint="@color/deletecolor"-->
-<!--                                    android:drawableStart="@drawable/baseline_delete_24"-->
-<!--                                    android:paddingHorizontal="10dp"-->
-<!--                                    android:text="  Delete"-->
-<!--                                    android:textAllCaps="false"-->
-<!--                                    android:textColor="@color/white"-->
-<!--                                    android:textSize="15sp" />-->
-
-
-<!--                            </LinearLayout>-->
-
-<!--                        </TableRow>-->
-
-
                     </TableLayout>
-
-
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
-
         </RelativeLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

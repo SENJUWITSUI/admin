@@ -174,7 +174,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        android:layout_marginLeft="25dp "
+                        android:layout_marginLeft="15dp"
                         android:layout_marginRight="10dp"
                         android:layout_below="@+id/search1"
                         android:layout_weight="1"
@@ -184,8 +184,7 @@
                             android:background="@drawable/shape"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            >
+                            android:layout_marginTop="2dp">
 
                             <TextView
                                 android:layout_width="100dp"
@@ -198,7 +197,7 @@
                                 android:textSize="19dp" />
 
                             <TextView
-                                android:layout_width="202dp"
+                                android:layout_width="225dp"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/divider"
                                 android:gravity="center"
@@ -209,10 +208,8 @@
 
                         </TableRow>
                     </TableLayout>
-
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
         </RelativeLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
