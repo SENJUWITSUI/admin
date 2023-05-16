@@ -1,10 +1,8 @@
 package com.example.nav_bar;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -13,16 +11,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.example.nav_bar.Fragment.Dashboard;
-import com.example.nav_bar.Fragment.Hospital;
-import com.example.nav_bar.Fragment.Services;
-import com.example.nav_bar.Fragment.Users;
+import com.example.nav_bar.Fragment_admin.Dashboard;
+import com.example.nav_bar.Fragment_admin.Hospital;
+import com.example.nav_bar.Fragment_admin.Services;
+import com.example.nav_bar.Fragment_admin.Users;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -30,11 +24,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        ImageView menuIcon = findViewById(R.id.imageView);
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, menuIcon);
+                popupMenu.getMenuInflater().inflate(R.menu.logoutmenu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.changepass:
+                                // Handle option 1 click
+                                return true;
+                            case R.id.logout:
+                                // Handle option 2 click
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+//                                        startActivity(new Intent(MainActivity.this,Login.class));
+                                        finish();
+                                    }
+                                },700);
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
