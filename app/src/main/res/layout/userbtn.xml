@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
+        android:background="@drawable/hospital_buttons"
         android:backgroundTint="@color/GREEN"
         android:drawableStart="@drawable/edit"
         android:paddingStart="15dp" />
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginTop="5dp"
+        android:background="@drawable/hospital_buttons"
         android:backgroundTint="@color/red"
         android:drawableStart="@drawable/delete"
         android:paddingStart="15dp"

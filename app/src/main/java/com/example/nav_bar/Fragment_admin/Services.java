@@ -1,7 +1,9 @@
 package com.example.nav_bar.Fragment_admin;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +15,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -20,6 +23,7 @@ import android.widget.TextView;
 
 import com.example.nav_bar.R;
 import com.example.nav_bar.RetrofitAPI;
+import com.example.nav_bar.RetrofitClient;
 import com.example.nav_bar.service;
 
 import java.util.List;
@@ -32,8 +36,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Services extends Fragment {
 
-    private static String API_BASE_URL = "http://10.20.105.87:8080/api/";
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,13 +46,10 @@ public class Services extends Fragment {
 //        EditText searchEditText = view.findViewById(R.id.servicesearch);
         TableLayout table_service = view.findViewById(R.id.table_services);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API_BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        RetrofitAPI retrofitapi = retrofit.create(RetrofitAPI.class);
-        retrofit2.Call<List<service>> call = retrofitapi.getServices();
+        Call<List<service>> call = RetrofitClient
+                .getInstance()
+                .getRetrofitApi().getServices();
 
             //SEARCH BAR
 //        searchEditText.addTextChangedListener(new TextWatcher() {
@@ -144,32 +143,46 @@ public class Services extends Fragment {
                     }
                 });
 
-//        Dialog myDialog = new Dialog(getContext());
-//        Button servicebtn = view.findViewById(R.id.servicebtn);
-//        servicebtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                myDialog.setContentView(R.layout.activity_addservice);
-//                Button myDialogButton = myDialog.findViewById(R.id.closebtn);
-//                Button myDialog1Button = myDialog.findViewById(R.id.savebtn);
-//
-//                myDialogButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                        Intent intent = new Intent(getActivity(), MainActivity.class);
-//                        startActivity(intent);
-//
-//
-//                    }
-//                });
+        Dialog dialog = new Dialog(getContext());
+        Button servicebtn = view.findViewById(R.id.servicebtn);
+        servicebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.setContentView(R.layout.activity_addservice);
 
-//                myDialog.show();
+                // Add a "Submit" button to the dialog layout
+                Button saveButton = dialog.findViewById(R.id.save);
+                saveButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Submit contents to the database
+                        dialog.dismiss();
+                    }
+                });
 
+                // Add a "Close" button to the dialog layout
+                Button closeButton = dialog.findViewById(R.id.close);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Dismiss the dialog when the button is clicked
+                        dialog.dismiss();
+                    }
 
-//            }
+                });
 
-//        });
+                // Add a "Exit" button to the dialog layout
+                TextView exitButton = dialog.findViewById(R.id.exit);
+                exitButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Dismiss the dialog when the button is clicked
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
 
 
         return view;

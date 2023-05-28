@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import com.example.nav_bar.Post;
 import com.example.nav_bar.R;
 import com.example.nav_bar.RetrofitAPI;
+import com.example.nav_bar.RetrofitClient;
 
 import java.util.List;
 
@@ -30,7 +32,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Hospital extends Fragment {
 
-    private static String BASE_URL = "http://10.20.105.87:8080/api/";
     private Button addHospital;
     private Button addCoor;
     private Button addDoc;
@@ -61,13 +62,10 @@ public class Hospital extends Fragment {
 
 
         TableLayout tableLayout = view.findViewById(R.id.table_hospital);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-        Call<List<Post>> call = retrofitAPI.listRepos2();
+        Call<List<Post>> call = RetrofitClient
+                .getInstance()
+                .getRetrofitApi().listRepos2();
 
         call.enqueue(new Callback<List<Post>>(){
 
@@ -90,6 +88,7 @@ public class Hospital extends Fragment {
                         hospitalLayoutParams.setMargins(10, 10, 10, 10);
                         hospitalview.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16); // Set text size to 16sp
                         hospitalview.setLayoutParams(hospitalLayoutParams);
+                        hospitalview.setGravity(Gravity.CENTER);
                         hospitalview.setText(h_name);
 
                         // Inflate the row layout XML file
@@ -123,42 +122,47 @@ public class Hospital extends Fragment {
             }
         });
 
-//        addHospital.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                // Add a "Submit" button to the dialog layout
-//                Button saveButton = dialog.findViewById(R.id.save);
-//                saveButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        // Submit contents to the database
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                    // Add a "Close" button to the dialog layout
-//                Button closeButton = dialog.findViewById(R.id.close);
-//                closeButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        // Dismiss the dialog when the button is clicked
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                // Add a "Exit" button to the dialog layout
-//                TextView exitButton = dialog.findViewById(R.id.exit);
-//                exitButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        // Dismiss the dialog when the button is clicked
-//                        dialog.dismiss();
-//                    }
-//                });
-//                dialog.show();
-//            }
-//        });
+
+        addHospital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Add a "Submit" button to the dialog layout
+                Button saveButton = dialog.findViewById(R.id.save);
+                saveButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Submit contents to the database
+                        dialog.dismiss();
+                    }
+                });
+
+                    // Add a "Close" button to the dialog layout
+                Button closeButton = dialog.findViewById(R.id.close);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Dismiss the dialog when the button is clicked
+                        dialog.dismiss();
+                    }
+                });
+
+                // Add a "Exit" button to the dialog layout
+                TextView exitButton = dialog.findViewById(R.id.exit);
+                exitButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Dismiss the dialog when the button is clicked
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
+        return view;
+    }
+}
+
 //
 //        //Add Coordinator
 //        addCoor.setOnClickListener(new View.OnClickListener() {
@@ -356,7 +360,5 @@ public class Hospital extends Fragment {
 //        });
 //        dialog.show();
 
-        return view;
-    }
-}
+
 
