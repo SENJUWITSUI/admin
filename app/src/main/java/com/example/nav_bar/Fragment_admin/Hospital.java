@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.nav_bar.Post;
 import com.example.nav_bar.R;
 import com.example.nav_bar.RetrofitAPI;
+import com.example.nav_bar.RetrofitClient;
 
 import java.util.List;
 
@@ -31,7 +32,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Hospital extends Fragment {
 
-    private static String BASE_URL = "http://10.20.105.87:8080/api/";
     private Button addHospital;
     private Button addCoor;
     private Button addDoc;
@@ -62,13 +62,10 @@ public class Hospital extends Fragment {
 
 
         TableLayout tableLayout = view.findViewById(R.id.table_hospital);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-        Call<List<Post>> call = retrofitAPI.listRepos2();
+        Call<List<Post>> call = RetrofitClient
+                .getInstance()
+                .getRetrofitApi().listRepos2();
 
         call.enqueue(new Callback<List<Post>>(){
 

@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.nav_bar.R;
 import com.example.nav_bar.RetrofitAPI;
+import com.example.nav_bar.RetrofitClient;
 import com.example.nav_bar.UserData;
 
 import java.util.List;
@@ -28,43 +29,18 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Users extends Fragment {
-    private static String BASE_URL = "http://10.20.105.87:8080/api/";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_users, container, false);
-
         TableLayout table_user = view.findViewById(R.id.table_user);
-//        table_user.setPadding(1, 1, 1, 1);
-//
-//        for (int i = 0; i < table_user.getChildCount(); i++) {
-//            View childView = table_user.getChildAt(i);
-//
-//            if (childView instanceof TableRow) {
-//                TableRow row = (TableRow) childView;
-//                row.setPadding(1, 1, 1, 1);
-//
-//                for (int j = 0; j < row.getChildCount(); j++) {
-//                    View grandChildView = row.getChildAt(j);
-//
-//                    if (grandChildView instanceof TextView) {
-//                        TextView textView = (TextView) grandChildView;
-//                        textView.setPadding(1, 1, 1, 1);
-//                    }
-//                }
-//            }
-//        }
 
-
-        Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-
-            RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-            Call<List<UserData>> call = retrofitAPI.getUsers();
+            Call<List<UserData>> call = RetrofitClient
+                    .getInstance()
+                    .getRetrofitApi().getUsers();
 
             call.enqueue(new Callback<List<UserData>>() {
                 @Override
